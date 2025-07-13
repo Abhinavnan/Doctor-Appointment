@@ -90,4 +90,7 @@ button:focus-visible {
   .MuiSvgIcon-root {
     color: #ffffff !important;
   }
+  .fc table{
+    background-color: #000000 !important;
+  }
 }

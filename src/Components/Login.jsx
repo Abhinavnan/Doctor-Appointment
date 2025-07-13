@@ -17,6 +17,8 @@ const Login = () => {
     const isDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
     const backgroundColor = isDarkMode ? '#0000008a' : '#ffffff8a'; 
     const h4Color = isDarkMode ? 'white' : 'black';
+    const subtitleBackgroundColor = loginError ? 'rgb(253, 237, 237)' : isDarkMode ? '#7373738a' : 'rgb(229, 246, 253)';
+    const subtitleColor =  loginError ? 'rgb(95, 33, 32)' : isDarkMode ? 'white' : 'rgb(1, 67, 97)';
     const handleSubmit = (event) => {
         event.preventDefault();
         setSubmit(true);
@@ -33,7 +35,8 @@ const Login = () => {
             <Paper elevation={3} sx={{width: {xs: '90%', sm: '23rem'}, display: 'flex', flexDirection: 'column', gap: 2, p: 2, py: 5,
                     alignItems: 'center', justifyContent: 'center', backgroundColor}}>
                 <Typography variant='h4' color={h4Color} >Login</Typography>
-                <Alert sx={{ width: '83%' }} severity={loginError ? 'error' : 'info'}>
+                <Alert sx={{ width: '83%', color: subtitleColor, backgroundColor: subtitleBackgroundColor,}} 
+                    severity={loginError ? 'error' : 'info'}>
                     {loginError ? 'Invalid credentials' : 'Login to view appointment details'}
                 </Alert>
                 <Box component={'form'} onSubmit={handleSubmit}
